@@ -1,12 +1,17 @@
 package com.jayklef.smart_email_reply.service;
 
 import com.jayklef.smart_email_reply.email.EmailRequest;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.util.Map;
 
 @Service
 public class EmailGeneratorService {
+    @Value("${gemini.api.url}")
+    private String geminiApiUrl;
+    @Value("${gemini.api.key}")
+    private String geminiApiKey;
 
     public String generateEmail(EmailRequest emailRequest){
         //Build the prompt
